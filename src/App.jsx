@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BookingModal from './components/BookingModal';
 import './index.css';
 
 const App = () => {
+    const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+    const openBooking = () => setIsBookingOpen(true);
+
     useEffect(() => {
         document.title = "Cabinet Dr. Eddassi Noureddine – Ophtalmologiste Meknès";
         
@@ -35,14 +40,19 @@ const App = () => {
 
     return (
         <div className="main-wrapper">
-            <Navbar />
+            <Navbar onBookingClick={openBooking} />
             <main>
-                <div data-reveal><Hero /></div>
+                <Hero onBookingClick={openBooking} />
                 <div data-reveal><About /></div>
                 <div data-reveal><Services /></div>
-                <div data-reveal><Contact /></div>
+                <div data-reveal><Contact onBookingClick={openBooking} /></div>
             </main>
             <Footer />
+
+            <BookingModal 
+                isOpen={isBookingOpen} 
+                onClose={() => setIsBookingOpen(false)} 
+            />
         </div>
     );
 };

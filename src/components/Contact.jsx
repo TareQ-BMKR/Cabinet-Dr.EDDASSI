@@ -4,7 +4,7 @@ import { Phone, MapPin, MessageCircle, Clock, ExternalLink } from './Icons';
 import interiorImg from '../assets/cabinet-interior.jpg';
 
 
-const Contact = () => {
+const Contact = ({ onBookingClick }) => {
     return (
         <section id="contact" className="section-padding" style={{ backgroundColor: '#fff' }}>
             <div className="container" style={{ maxWidth: '1280px' }}>
@@ -36,7 +36,12 @@ const Contact = () => {
                             </div>
                             <div>
                                 <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>WhatsApp</h4>
-                                <a href="https://wa.me/212618689329" target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.8rem', fontWeight: 800, color: '#22c55e' }}>06.18.68.93.29</a>
+                                <button
+                                    onClick={onBookingClick}
+                                    style={{ fontSize: '1.8rem', fontWeight: 800, color: '#22c55e', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left' }}
+                                >
+                                    Prendre RDV en ligne
+                                </button>
                             </div>
                         </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Calendar, PhoneCall, ChevronRight, MousePointer2 } from './Icons';
 import { motion } from 'framer-motion';
 
-const Hero = () => {
+const Hero = ({ onBookingClick }) => {
   return (
     <section id="accueil" className="hero">
       <div className="container">
@@ -26,14 +26,14 @@ const Hero = () => {
             </p>
 
             <div className="hero-btns">
-              <a
-                href="https://wa.me/212618689329"
+              <button
+                onClick={onBookingClick}
                 className="btn-primary"
                 style={{ height: 60, fontSize: '1.2rem', padding: '0 2.5rem' }}
               >
                 <Calendar size={22} />
                 Prendre RDV
-              </a>
+              </button>
               <a
                 href="#services"
                 className="btn-secondary"

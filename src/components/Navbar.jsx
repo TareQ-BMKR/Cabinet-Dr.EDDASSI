@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, MessageCircle } from './Icons';
 import logo from '../assets/logo.png';
 
-const Navbar = () => {
+const Navbar = ({ onBookingClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -42,15 +42,13 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <a 
-              href="https://wa.me/212618689329" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <button 
+              onClick={onBookingClick}
               className="btn-primary"
             >
               <MessageCircle size={18} />
               Prendre RDV
-            </a>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -80,17 +78,17 @@ const Navbar = () => {
             {link.name}
           </a>
         ))}
-        <a 
-          href="https://wa.me/212618689329" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <button 
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            onBookingClick();
+          }}
           className="btn-primary"
           style={{ fontSize: '1.25rem', padding: '1rem 2rem' }}
-          onClick={() => setIsMobileMenuOpen(false)}
         >
           <MessageCircle size={24} />
-          RDV WhatsApp
-        </a>
+          Prendre RDV
+        </button>
       </div>
     </nav>
   );

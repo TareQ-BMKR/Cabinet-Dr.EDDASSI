@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Layers, Eye, Scissors, Microscope, Shield, Activity, Users, MonitorCheck } from './Icons';
 
-const Services = () => {
+const Services = ({ onBookingClick }) => {
     const services = [
         {
             title: "Chirurgie de la Cataracte",
@@ -88,16 +88,14 @@ const Services = () => {
                      <p style={{ opacity: 0.7, maxWidth: '700px', margin: '0 auto 3rem', fontSize: '1.2rem', fontStyle: 'italic' }}>
                         "Notre cabinet est équipé des technologies d'imagerie les plus récentes pour garantir une précision absolue dans nos diagnostics et traitements."
                      </p>
-                     <a 
-                        href="https://wa.me/212618689329" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                     <button 
+                        onClick={onBookingClick}
                         className="btn-primary"
-                        style={{ height: 60, fontSize: '1.2rem', padding: '0 3rem', display: 'inline-flex', justifyContent: 'center' }}
+                        style={{ height: 60, fontSize: '1.2rem', padding: '0 3rem', display: 'inline-flex', justifyContent: 'center', margin: '0 auto' }}
                      >
                         <MonitorCheck size={24} />
                         Réserver une Consultation
-                     </a>
+                     </button>
                 </div>
             </div>
         </section>

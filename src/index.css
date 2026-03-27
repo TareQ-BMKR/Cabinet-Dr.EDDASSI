@@ -25,7 +25,7 @@ html {
 
 body {
   font-family: var(--font-outfit);
-  background-color: var(--primary-gray);
+  background-color: var(--primary-navy);
   color: var(--primary-navy);
   line-height: 1.6;
 }
@@ -63,6 +63,8 @@ button {
 /* Navbar */
 .navbar {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
   transition: var(--transition);
@@ -217,10 +219,11 @@ button {
   display: flex;
   align-items: center;
   padding-top: 80px;
-  background: linear-gradient(135deg, #1A2A4A 0%, #0D1426 100%);
+  background: linear-gradient(to bottom right, #1A2A4A 0%, #0D1426 100%);
   color: var(--white);
   position: relative;
   overflow: hidden;
+  margin-top: 0;
 }
 
 .hero-grid {
@@ -521,9 +524,139 @@ footer {
 
 [data-reveal].visible {
   opacity: 1;
-  transform: translateY(0);
+  font-weight: 800;
 }
 
 .font-arabic {
   font-family: var(--font-arabic);
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 20, 38, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-container {
+  background: var(--white);
+  width: 100%;
+  max-width: 500px;
+  border-radius: 2rem;
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--primary-navy);
+  opacity: 0.5;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.booking-step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-navy);
+}
+
+.booking-step-subtitle {
+  font-size: 0.9rem;
+  color: rgba(26, 42, 74, 0.6);
+  margin-bottom: 2rem;
+}
+
+.days-grid, .hours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.selection-btn {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid var(--primary-gray);
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.selection-btn:hover:not(:disabled) {
+  border-color: var(--primary-orange);
+  background: rgba(200, 88, 26, 0.05);
+}
+
+.selection-btn.active {
+  background: var(--primary-orange);
+  border-color: var(--primary-orange);
+  color: var(--white);
+}
+
+.selection-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.selection-btn span.day-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.selection-btn span.day-name {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.booking-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.btn-confirm {
+  background: var(--primary-orange);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: var(--transition);
+}
+
+.btn-confirm:hover {
+  background: #b54c15;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(200, 88, 26, 0.3);
+}
+
+.btn-confirm:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
