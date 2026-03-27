@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, Building2 } from './Icons';
+import drPhoto from '../assets/dr-eddassi.jpg';
 
 const About = () => {
     const credentials = [
@@ -12,7 +13,7 @@ const About = () => {
         {
             icon: <Award size={24} />,
             text: "Diplômé en chirurgie réfractive et phacoémulsification – Université de Brest, France",
-            arabic: "دبلوم تصحيح البصر بالليزر وجراحة المياه البيضاء(الجلالة) بجامعة بريست فرنسا"
+            arabic: "دبلوم تصحيح البصر بالليزر وجراحة المياه البيضاء(الجلالة) - بجامعة بريست فرنسا"
         },
         {
             icon: <Award size={24} />,
@@ -43,13 +44,33 @@ const About = () => {
                         className="about-img-container"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1559839734-2b71f1e3c770?auto=format&fit=crop&q=80&w=800"
+                            src={drPhoto}
                             alt="Dr. Eddassi Noureddine"
                             className="about-img"
                         />
-                        <div style={{ position: 'absolute', bottom: 30, left: 30, background: 'linear-gradient(to top, rgba(26,42,74,0.9), transparent)', color: '#fff', padding: '1rem 2rem', borderRadius: '1rem', width: '80%' }}>
-                            <h3 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Dr. EDDASSI Noureddine</h3>
-                            <p style={{ color: 'var(--primary-orange)', fontWeight: 600, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '2px' }}>Ophtalmologiste Expert</p>
+                        <div style={{ 
+                            position: 'absolute', 
+                            bottom: 0, 
+                            left: 0, 
+                            right: 0,
+                            padding: '2.5rem 3rem',
+                            background: 'linear-gradient(to top, rgba(26, 42, 74, 0.95) 0%, rgba(26, 42, 74, 0.8) 50%, transparent 100%)',
+                            borderBottomLeftRadius: '2rem',
+                            borderBottomRightRadius: '2rem',
+                            color: '#fff',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '0.5rem'
+                        }}>
+                            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, letterSpacing: '-0.5px', marginBottom: 0 }}>Dr. EDDASSI Noureddine</h3>
+                            <p style={{ 
+                                color: 'var(--primary-orange)', 
+                                fontWeight: 700, 
+                                fontSize: '0.9rem', 
+                                textTransform: 'uppercase', 
+                                letterSpacing: '3px',
+                                margin: 0
+                            }}>Ophtalmologiste Expert</p>
                         </div>
                     </motion.div>
 
