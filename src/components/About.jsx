@@ -48,10 +48,10 @@ const About = () => {
                             alt="Dr. Eddassi Noureddine"
                             className="about-img"
                         />
-                        <div style={{ 
-                            position: 'absolute', 
-                            bottom: 0, 
-                            left: 0, 
+                        <div style={{
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 0,
                             right: 0,
                             padding: '2.5rem 3rem',
                             background: 'linear-gradient(to top, rgba(26, 42, 74, 0.95) 0%, rgba(26, 42, 74, 0.8) 50%, transparent 100%)',
@@ -63,11 +63,11 @@ const About = () => {
                             gap: '0.5rem'
                         }}>
                             <h3 style={{ fontSize: '1.8rem', fontWeight: 800, letterSpacing: '-0.5px', marginBottom: 0 }}>Dr. EDDASSI Noureddine</h3>
-                            <p style={{ 
-                                color: 'var(--primary-orange)', 
-                                fontWeight: 700, 
-                                fontSize: '0.9rem', 
-                                textTransform: 'uppercase', 
+                            <p style={{
+                                color: 'var(--primary-orange)',
+                                fontWeight: 700,
+                                fontSize: '0.9rem',
+                                textTransform: 'uppercase',
                                 letterSpacing: '3px',
                                 margin: 0
                             }}>Ophtalmologiste Expert</p>

@@ -26,11 +26,6 @@ const Footer = () => {
               <br /><br />
               <i>"Voir le monde avec clarté."</i>
             </p>
-            <div className="social-links">
-              <a href="#" style={{ border: '1px solid rgba(255,255,255,0.1)', padding: '0.75rem', borderRadius: '50%' }} aria-label="Facebook"><Facebook size={20} /></a>
-              <a href="#" style={{ border: '1px solid rgba(255,255,255,0.1)', padding: '0.75rem', borderRadius: '50%' }} aria-label="Instagram"><Instagram size={20} /></a>
-              <a href="#" style={{ border: '1px solid rgba(255,255,255,0.1)', padding: '0.75rem', borderRadius: '50%' }} aria-label="LinkedIn"><Linkedin size={20} /></a>
-            </div>
           </div>
 
           <div>

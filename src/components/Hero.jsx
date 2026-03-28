@@ -28,8 +28,8 @@ const Hero = ({ onBookingClick }) => {
             <div className="hero-btns">
               <button
                 onClick={onBookingClick}
-                className="btn-primary"
-                style={{ height: 60, fontSize: '1.2rem', padding: '0 2.5rem' }}
+                className="btn-primary hero-rdv-btn"
+                style={{ height: 60, fontSize: '1.2rem', padding: '0 2.5rem', justifyContent: 'center' }}
               >
                 <Calendar size={22} />
                 Prendre RDV

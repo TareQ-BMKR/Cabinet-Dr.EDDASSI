@@ -993,3 +993,14 @@ footer {
 .font-arabic {
   font-family: var(--font-arabic);
 }
+
+/* Hero RDV button — full-width on mobile so text is centred */
+.hero-rdv-btn {
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .hero-rdv-btn {
+    width: auto;
+  }
+}
