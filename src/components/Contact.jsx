@@ -10,7 +10,7 @@ const Contact = ({ onBookingClick }) => {
             <div className="container" style={{ maxWidth: '1280px' }}>
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                     <span style={{ color: 'var(--primary-orange)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '0.8rem' }}>Nous Contacter</span>
-                    <h2 className="section-title" style={{ marginTop: '1rem', fontSize: '3rem' }}>Prenez RDV dès aujourd'hui</h2>
+                    <h2 className="section-title" style={{ marginTop: '1rem', fontSize: 'clamp(1.75rem, 5vw, 3rem)' }}>Prenez RDV dès aujourd'hui</h2>
                     <div className="title-underline" style={{ margin: '1rem auto' }} />
                 </div>
 
@@ -19,7 +19,7 @@ const Contact = ({ onBookingClick }) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="cabinet-image-wrapper"
-                    style={{ marginBottom: '3rem', borderRadius: '3rem', overflow: 'hidden', height: '400px', boxShadow: 'var(--shadow-lg)' }}
+                    style={{ marginBottom: '2.5rem', borderRadius: '1.5rem', overflow: 'hidden', height: 'clamp(200px, 40vw, 400px)', boxShadow: 'var(--shadow-lg)' }}
                 >
                     <img 
                         src={interiorImg} 
@@ -31,49 +31,56 @@ const Contact = ({ onBookingClick }) => {
                 <div className="contact-container">
                     <div className="contact-info">
                         <div className="contact-info-card">
-                            <div className="icon-box" style={{ background: 'rgba(34, 197, 94, 0.1)', color: '#22c55e' }}>
-                                <MessageCircle size={32} />
+                            <div className="icon-box" style={{ width: 48, height: 48, minWidth: 48, borderRadius: '0.875rem' }}>
+                                <MessageCircle size={24} />
                             </div>
-                            <div>
-                                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>WhatsApp</h4>
-                                <button
-                                    onClick={onBookingClick}
-                                    style={{ fontSize: '1.8rem', fontWeight: 800, color: '#22c55e', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left' }}
+                            <div style={{ minWidth: 0 }}>
+                                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem' }}>WhatsApp</h4>
+                                <a
+                                    href="https://wa.me/212618689329"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ fontSize: 'clamp(1.1rem, 4vw, 1.6rem)', fontWeight: 800, display: 'block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
                                 >
-                                    Prendre RDV en ligne
-                                </button>
+                                    06.18.68.93.29
+                                </a>
                             </div>
                         </div>
 
                         <div className="contact-info-card">
-                            <div className="icon-box">
-                                <Phone size={32} />
+                            <div className="icon-box" style={{ width: 48, height: 48, minWidth: 48, borderRadius: '0.875rem' }}>
+                                <Phone size={24} />
                             </div>
-                            <div>
-                                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>Téléphone Fixe</h4>
-                                <a href="tel:0535523029" style={{ fontSize: '1.8rem', fontWeight: 800 }}>05.35.52.30.29</a>
-                            </div>
-                        </div>
-
-                        <div className="contact-info-card">
-                            <div className="icon-box" style={{ color: 'var(--primary-orange)', background: 'rgba(200, 88, 26, 0.1)' }}>
-                                <MapPin size={32} />
-                            </div>
-                            <div>
-                                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>Adresse</h4>
-                                <p style={{ fontSize: '1.2rem', fontWeight: 600 }}>19 Bd Allal Ben Abdallah, VN – Meknès</p>
-                                <p style={{ fontSize: '0.8rem', opacity: 0.5, textTransform: 'uppercase', letterSpacing: '1px' }}>1er Étage, Bureau 5</p>
+                            <div style={{ minWidth: 0 }}>
+                                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem' }}>Téléphone Fixe</h4>
+                                <a
+                                    href="tel:0535523029"
+                                    style={{ fontSize: 'clamp(1.1rem, 4vw, 1.6rem)', fontWeight: 800, display: 'block', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                                >
+                                    05.35.52.30.29
+                                </a>
                             </div>
                         </div>
 
                         <div className="contact-info-card">
-                            <div className="icon-box">
-                                <Clock size={32} />
+                            <div className="icon-box" style={{ width: 48, height: 48, minWidth: 48, borderRadius: '0.875rem', color: 'var(--primary-orange)', background: 'rgba(200, 88, 26, 0.1)' }}>
+                                <MapPin size={24} />
                             </div>
-                            <div>
-                                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.25rem' }}>Horaires</h4>
-                                <p style={{ fontWeight: 600 }}>Lun - Ven: 08:30 - 17:00</p>
-                                <p style={{ fontWeight: 600 }}>Sam: 09:00 - 13:00</p>
+                            <div style={{ minWidth: 0 }}>
+                                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem' }}>Adresse</h4>
+                                <p style={{ fontSize: 'clamp(0.85rem, 2.5vw, 1.1rem)', fontWeight: 600, lineHeight: 1.4 }}>19 Bd Allal Ben Abdallah, VN – Meknès</p>
+                                <p style={{ fontSize: '0.75rem', opacity: 0.5, textTransform: 'uppercase', letterSpacing: '1px', marginTop: '0.2rem' }}>1er Étage, Bureau 5</p>
+                            </div>
+                        </div>
+
+                        <div className="contact-info-card">
+                            <div className="icon-box" style={{ width: 48, height: 48, minWidth: 48, borderRadius: '0.875rem' }}>
+                                <Clock size={24} />
+                            </div>
+                            <div style={{ minWidth: 0 }}>
+                                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.2rem' }}>Horaires</h4>
+                                <p style={{ fontWeight: 600, fontSize: 'clamp(0.85rem, 2.5vw, 1rem)' }}>Lun - Ven: 08:30 - 17:00</p>
+                                <p style={{ fontWeight: 600, fontSize: 'clamp(0.85rem, 2.5vw, 1rem)' }}>Sam: 09:00 - 13:00</p>
                                 <p style={{ opacity: 0.5, fontSize: '0.8rem' }}>Dimanche: Fermé</p>
                             </div>
                         </div>

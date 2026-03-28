@@ -44,7 +44,7 @@ const App = () => {
             <main>
                 <Hero onBookingClick={openBooking} />
                 <div data-reveal><About /></div>
-                <div data-reveal><Services /></div>
+                <Services onBookingClick={openBooking} />
                 <div data-reveal><Contact onBookingClick={openBooking} /></div>
             </main>
             <Footer />

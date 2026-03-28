@@ -75,12 +75,12 @@ const About = () => {
                     </motion.div>
 
                     <div className="about-content">
-                        <div style={{ marginBottom: '3rem' }}>
+                        <div style={{ marginBottom: '2.5rem' }}>
                             <h2 className="section-title">Parcours & Expertise</h2>
                             <div className="title-underline" />
-                            <p style={{ fontSize: '1.2rem', color: '#666', borderLeft: '4px solid var(--primary-orange)', paddingLeft: '1.5rem', fontStyle: 'italic', marginBottom: '2.5rem' }}>
+                            <p style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', color: '#666', borderLeft: '4px solid var(--primary-orange)', paddingLeft: '1.25rem', fontStyle: 'italic', marginBottom: '2rem', lineHeight: 1.7 }}>
                                 "Engagé pour offrir les meilleurs soins ophtalmologiques en utilisant des techniques chirurgicales avancées et des technologies de pointe."
-                                <span className="font-arabic" dir="rtl" style={{ display: 'block', marginTop: '1rem', fontSize: '1.5rem', color: 'var(--primary-navy)' }}>
+                                <span className="font-arabic" dir="rtl" style={{ display: 'block', marginTop: '0.875rem', fontSize: 'clamp(1rem, 3vw, 1.4rem)', color: 'var(--primary-navy)', lineHeight: 1.8 }}>
                                     ملتزمون بتقديم أفضل رعاية للعيون باستخدام تقنيات جراحية متقدمة وأحدث التقنيات.
                                 </span>
                             </p>

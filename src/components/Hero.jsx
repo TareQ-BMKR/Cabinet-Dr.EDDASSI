@@ -44,7 +44,7 @@ const Hero = ({ onBookingClick }) => {
               </a>
             </div>
 
-            <div style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem', opacity: 0.7, alignItems: 'center' }}>
+            <div className="hero-phone-row">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <PhoneCall size={20} color="var(--primary-orange)" />
                 <span style={{ fontWeight: 600 }}>+212 535 52 30 29</span>

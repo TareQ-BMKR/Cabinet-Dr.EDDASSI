@@ -54,23 +54,51 @@ const Services = ({ onBookingClick }) => {
         }
     ];
 
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.2,
+            }
+        }
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, y: 24 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }
+        }
+    };
+
     return (
         <section id="services" className="section-padding services">
             <div className="container">
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.55, ease: 'easeOut' }}
+                    style={{ textAlign: 'center', marginBottom: '3.5rem' }}
+                >
                     <span style={{ color: 'var(--primary-orange)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '0.8rem' }}>Expertise Médicale</span>
-                    <h2 className="section-title" style={{ marginTop: '1rem', fontSize: '3rem' }}>Nos Services Spécialisés</h2>
+                    <h2 className="section-title" style={{ marginTop: '1rem', fontSize: 'clamp(1.75rem, 5vw, 3rem)' }}>Nos Services Spécialisés</h2>
                     <div className="title-underline" style={{ margin: '1rem auto' }} />
-                </div>
+                </motion.div>
 
-                <div className="services-grid">
+                <motion.div
+                    className="services-grid"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-40px' }}
+                >
                     {services.map((service, index) => (
-                        <motion.div 
+                        <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            variants={cardVariants}
                             className="service-card"
                         >
                             <div className="icon-box" style={{ width: 70, height: 70 }}>
@@ -81,21 +109,23 @@ const Services = ({ onBookingClick }) => {
                             <p style={{ color: '#666', fontSize: '0.95rem' }}>{service.description}</p>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
                 
-                <div style={{ marginTop: '5rem', background: 'var(--primary-navy)', padding: '5rem', borderRadius: '4rem', color: '#fff', textAlign: 'center' }}>
-                     <h3 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1.5rem' }}>Besoin d'un diagnostic approfondi ?</h3>
-                     <p style={{ opacity: 0.7, maxWidth: '700px', margin: '0 auto 3rem', fontSize: '1.2rem', fontStyle: 'italic' }}>
+                <div style={{ marginTop: '4rem', background: 'var(--primary-navy)', padding: 'clamp(2rem, 6vw, 5rem)', borderRadius: 'clamp(1.5rem, 4vw, 4rem)', color: '#fff', textAlign: 'center' }}>
+                     <h3 style={{ fontSize: 'clamp(1.4rem, 4vw, 2.5rem)', fontWeight: 700, marginBottom: '1.25rem', lineHeight: 1.2 }}>Besoin d'un diagnostic approfondi ?</h3>
+                     <p style={{ opacity: 0.7, maxWidth: '700px', margin: '0 auto 2rem', fontSize: 'clamp(0.95rem, 2.5vw, 1.2rem)', fontStyle: 'italic' }}>
                         "Notre cabinet est équipé des technologies d'imagerie les plus récentes pour garantir une précision absolue dans nos diagnostics et traitements."
                      </p>
-                     <button 
-                        onClick={onBookingClick}
-                        className="btn-primary"
-                        style={{ height: 60, fontSize: '1.2rem', padding: '0 3rem', display: 'inline-flex', justifyContent: 'center', margin: '0 auto' }}
-                     >
-                        <MonitorCheck size={24} />
-                        Réserver une Consultation
-                     </button>
+                     <div style={{ display: 'flex', justifyContent: 'center' }}>
+                         <button 
+                            onClick={onBookingClick}
+                            className="btn-primary"
+                            style={{ height: '56px', fontSize: '1.05rem', padding: '0 2.5rem' }}
+                         >
+                            <MonitorCheck size={22} />
+                            Prendre un rendez-vous
+                         </button>
+                     </div>
                 </div>
             </div>
         </section>
