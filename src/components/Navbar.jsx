@@ -28,7 +28,8 @@ const Navbar = ({ onBookingClick }) => {
     { name: 'Accueil', href: '#accueil', num: '01' },
     { name: 'À propos', href: '#a-propos', num: '02' },
     { name: 'Services', href: '#services', num: '03' },
-    { name: 'Contact', href: '#contact', num: '04' },
+    { name: 'Galerie', href: '#galerie', num: '04' },
+    { name: 'Contact', href: '#contact', num: '05' },
   ];
 
   const handleNavClick = (href) => {
@@ -167,9 +168,9 @@ const Navbar = ({ onBookingClick }) => {
                     <Phone size={16} />
                     <span>05.35.52.30.29</span>
                   </a>
-                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="drawer-contact-item">
+                  <a href="https://maps.app.goo.gl/Buc2kPnmBpkEqHceA" target="_blank" rel="noopener noreferrer" className="drawer-contact-item">
                     <MapPin size={16} />
-                    <span>19 Bd Allal Ben Abdallah, Meknès</span>
+                    <span>66 Avenue des FAR, Meknès</span>
                   </a>
                 </div>
               </div>

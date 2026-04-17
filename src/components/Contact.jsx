@@ -1,32 +1,74 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, MessageCircle, Clock, ExternalLink } from './Icons';
-import interiorImg from '../assets/cabinet-interior.jpg';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Phone, MapPin, MessageCircle, Clock } from './Icons';
 
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = ({ onBookingClick }) => {
+    const sectionRef = useRef(null);
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            const cards = sectionRef.current?.querySelectorAll('.contact-info-card');
+            const map = sectionRef.current?.querySelector('.map-wrapper');
+            const header = sectionRef.current?.querySelector('.contact-header');
+
+            if (header) {
+                gsap.fromTo(header, 
+                    { opacity: 0, y: 30 },
+                    { 
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: header, start: 'top 90%', fastScrollEnd: true }
+                    }
+                );
+            }
+
+            if (cards?.length) {
+                gsap.fromTo(cards,
+                    { opacity: 0, x: -30 },
+                    {
+                        opacity: 1, x: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+                        scrollTrigger: { trigger: cards[0], start: 'top 85%', fastScrollEnd: true }
+                    }
+                );
+            }
+
+            if (map) {
+                gsap.fromTo(map,
+                    { opacity: 0, scale: 0.95 },
+                    {
+                        opacity: 1, scale: 1, duration: 1, ease: 'power2.out',
+                        scrollTrigger: { trigger: map, start: 'top 85%', fastScrollEnd: true }
+                    }
+                );
+            }
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section id="contact" className="section-padding" style={{ backgroundColor: '#fff' }}>
+        <section id="contact" ref={sectionRef} className="section-padding" style={{ backgroundColor: '#fff' }}>
             <div className="container" style={{ maxWidth: '1280px' }}>
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                <div className="contact-header" style={{ textAlign: 'center', marginBottom: '5rem' }}>
                     <span style={{ color: 'var(--primary-orange)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '4px', fontSize: '0.8rem' }}>Nous Contacter</span>
                     <h2 className="section-title" style={{ marginTop: '1rem', fontSize: 'clamp(1.75rem, 5vw, 3rem)' }}>Prenez RDV dès aujourd'hui</h2>
                     <div className="title-underline" style={{ margin: '1rem auto' }} />
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={onBookingClick}
+                            className="btn-primary btn-glow"
+                            style={{ height: '56px', padding: '0 3.5rem', fontSize: '1.1rem', fontWeight: 700 }}
+                        >
+                            Cliquez ici
+                        </motion.button>
+                    </div>
                 </div>
-
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="cabinet-image-wrapper"
-                    style={{ marginBottom: '2.5rem', borderRadius: '1.5rem', overflow: 'hidden', height: 'clamp(200px, 40vw, 400px)', boxShadow: 'var(--shadow-lg)' }}
-                >
-                    <img 
-                        src={interiorImg} 
-                        alt="Intérieur du Cabinet" 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                </motion.div>
 
                 <div className="contact-container">
                     <div className="contact-info">
@@ -87,13 +129,13 @@ const Contact = ({ onBookingClick }) => {
                     </div>
 
                     <div className="map-wrapper">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7684.007004770923!2d-5.551159564587405!3d33.899286961540945!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda04577aaa18653%3A0xed6ddd016df78e0e!2sDR.%20EDDASSI%20NOUREDDINE%20OPHTALMOLOGISTE!5e1!3m2!1sfr!2sma!4v1774619246065!5m2!1sfr!2sma" 
-                            width="100%" 
-                            height="100%" 
-                            style={{ border: 0 }} 
-                            allowFullScreen="" 
-                            loading="lazy" 
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7684.007004770923!2d-5.551159564587405!3d33.899286961540945!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda04577aaa18653%3A0xed6ddd016df78e0e!2sDR.%20EDDASSI%20NOUREDDINE%20OPHTALMOLOGISTE!5e1!3m2!1sfr!2sma!4v1774619246065!5m2!1sfr!2sma"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                             title="Emplacement du Cabinet Dr. Eddassi"
                         />

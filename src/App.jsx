@@ -3,9 +3,11 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BookingModal from './components/BookingModal';
+import { MessageCircle } from './components/Icons';
 import './index.css';
 
 const App = () => {
@@ -15,7 +17,7 @@ const App = () => {
 
     useEffect(() => {
         document.title = "Cabinet Dr. Eddassi Noureddine – Ophtalmologiste Meknès";
-        
+
         // Add meta description for SEO
         const metaDescription = document.querySelector('meta[name="description"]');
         if (!metaDescription) {
@@ -45,14 +47,26 @@ const App = () => {
                 <Hero onBookingClick={openBooking} />
                 <div data-reveal><About /></div>
                 <Services onBookingClick={openBooking} />
+                <Gallery />
                 <div data-reveal><Contact onBookingClick={openBooking} /></div>
             </main>
             <Footer />
 
-            <BookingModal 
-                isOpen={isBookingOpen} 
-                onClose={() => setIsBookingOpen(false)} 
+            <BookingModal
+                isOpen={isBookingOpen}
+                onClose={() => setIsBookingOpen(false)}
             />
+
+            {/* Floating High-Visibility Actions */}
+            <a
+                href="https://wa.me/212618689329"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="floating-whatsapp"
+                aria-label="Contactez-nous sur WhatsApp"
+            >
+                <MessageCircle size={32} />
+            </a>
         </div>
     );
 };
