@@ -17,7 +17,7 @@ const Hero = ({ onBookingClick }) => {
             <h1 className="hero-title">
               Cabinet Ophtalmologique
               <span className="arabic" dir="rtl">
-                عيادة الدكتور إداسي نور الدين
+                عيادة الدكتور الداسي نور الدين
               </span>
             </h1>
 
