@@ -10,12 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 const IMAGES = [
   '/Galerie/cabinet1.jpeg',
   '/Galerie/cabinet2.jpeg',
-  '/Galerie/cabinet3.jpeg',
+  '/Galerie/cabinet9.jpeg',
+  '/Galerie/cabinet8.jpeg',
   '/Galerie/cabinet4.jpeg',
-  '/Galerie/cabinet5.jpeg',
   '/Galerie/cabinet6.jpeg',
   '/Galerie/cabinet7.jpeg',
-  '/Galerie/cabinet8.jpeg',
+  '/Galerie/cabinet5.jpeg',
+  '/Galerie/cabinet3.jpeg',
 ];
 const MAPS_URL = 'https://maps.app.goo.gl/Buc2kPnmBpkEqHceA';
 
@@ -23,9 +24,9 @@ const Gallery = () => {
   const [selectedIdx, setSelectedIdx] = useState(null);
 
   const sectionRef = useRef(null);
-  const headerRef  = useRef(null);
-  const gridRef    = useRef(null);
-  const bannerRef  = useRef(null);
+  const headerRef = useRef(null);
+  const gridRef = useRef(null);
+  const bannerRef = useRef(null);
 
   /* ── Lightbox helpers (memoised to avoid EventListener churn) ── */
   const close = useCallback(() => {
@@ -53,8 +54,8 @@ const Gallery = () => {
     if (selectedIdx === null) return;
     const onKey = (e) => {
       if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft')  prev();
-      if (e.key === 'Escape')     close();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'Escape') close();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -125,10 +126,25 @@ const Gallery = () => {
 
           <div className="gallery-header-v2" ref={headerRef}>
             <div className="header-left">
-              <span className="badge-v2">Visite Virtuelle</span>
               <h2 className="title-v2">Galerie du Cabinet</h2>
               <p className="desc-v2">Explorez nos installations modernes dédiées à la santé de vos yeux.</p>
             </div>
+          </div>
+
+          <div className="maps-banner-v2" ref={bannerRef}>
+            <div className="banner-content-v2">
+              <div className="pin-box">
+                <MapPin size={26} />
+              </div>
+              <div className="text-box-v2">
+                <h3>Cabinet Dr. Eddassi</h3>
+                <p>19 avenue Allal ben ABDELAH 1 er étage bureau 5 HMARIA MEKNES</p>
+              </div>
+            </div>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="btn-v2">
+              Voir les photos sur Google Maps
+              <ExternalLink size={18} />
+            </a>
           </div>
 
           {/* Grid – plain divs so GSAP has full control; whileTap only for feedback */}
@@ -153,21 +169,7 @@ const Gallery = () => {
             ))}
           </div>
 
-          <div className="maps-banner-v2" ref={bannerRef}>
-            <div className="banner-content-v2">
-              <div className="pin-box">
-                <MapPin size={26} />
-              </div>
-              <div className="text-box-v2">
-                <h3>Cabinet Dr. Eddassi</h3>
-                <p>66 Avenue des FAR, Meknès (Immeuble Ben Salem)</p>
-              </div>
-            </div>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="btn-v2">
-              S'y rendre avec Maps
-              <ExternalLink size={18} />
-            </a>
-          </div>
+
 
         </div>
       </section>
@@ -198,8 +200,19 @@ const Gallery = () => {
               exit={{ scale: 0.92, opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.4}
+              onDragEnd={(_, info) => {
+                const swipeThreshold = 50;
+                if (info.offset.x > swipeThreshold) {
+                  prev();
+                } else if (info.offset.x < -swipeThreshold) {
+                  next();
+                }
+              }}
             >
-              <img src={selectedImg} alt="Vue détaillée du cabinet" />
+              <img src={selectedImg} alt="Vue détaillée du cabinet" draggable="false" />
               <div className="lightbox-counter">
                 {selectedIdx + 1} / {IMAGES.length}
               </div>

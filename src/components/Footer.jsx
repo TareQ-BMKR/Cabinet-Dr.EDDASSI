@@ -41,9 +41,9 @@ const Footer = () => {
           <div>
             <h4 style={{ color: 'var(--primary-orange)', fontWeight: 700, marginBottom: '1.5rem', fontSize: '1.25rem' }}>Cabinet</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem', opacity: 0.6 }}>
-              <li>19 Bd Allal Ben Abdallah</li>
+              <li>19 avenue  Allal Ben Abdallah</li>
               <li>1er Étage, Bureau 5</li>
-              <li>VN – Meknès, Maroc</li>
+              <li> HMARIA  – Meknès, Maroc</li>
               <li style={{ color: '#fff', fontWeight: 800 }}>+212 535 52 30 29</li>
             </ul>
           </div>
