@@ -400,9 +400,15 @@ button {
   .hero-content {
     text-align: center;
   }
+  .hero-title {
+    align-items: center;
+  }
 }
 
 .hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   font-size: 2.2rem;
   line-height: 1.15;
   font-weight: 800;
@@ -410,11 +416,16 @@ button {
 }
 
 .hero-title .doctor-name-fr {
-  display: block;
-  color: var(--white);
-  margin-top: 0.5rem;
-  font-size: 0.80em;
+  display: inline-block;
+  color: var(--primary-orange);
+  margin-top: 1rem;
+  font-size: 0.75em;
   font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--primary-orange);
 }
 
 .hero-title .arabic {
@@ -1223,7 +1234,7 @@ footer {
 }
 
 .btn-v2 {
-  background: var(--primary-navy);
+  background: var(--primary-orange);
   color: var(--white);
   padding: 1rem 2rem;
   border-radius: 1rem;
@@ -1235,9 +1246,9 @@ footer {
 }
 
 .btn-v2:hover {
-  background: #253b66;
+  background: #b54c15;
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(26, 42, 74, 0.2);
+  box-shadow: 0 15px 30px rgba(200, 88, 26, 0.2);
 }
 
 /* ============================================

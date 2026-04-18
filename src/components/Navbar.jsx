@@ -111,7 +111,7 @@ const Navbar = ({ onBookingClick }) => {
               ))}
               <button onClick={onBookingClick} className="btn-primary">
                 <MessageCircle size={18} />
-                Réserver Maintenant
+                Prendre RDV
               </button>
             </div>
 
@@ -185,7 +185,7 @@ const Navbar = ({ onBookingClick }) => {
                 onClick={() => { closeDrawer(); onBookingClick(); }}
               >
                 <Calendar size={20} />
-                Réserver Maintenant
+                Prendre RDV
               </button>
               <div className="drawer-contact-info">
                 <a href="tel:0535523029" className="drawer-contact-item">

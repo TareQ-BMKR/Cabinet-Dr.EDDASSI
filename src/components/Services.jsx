@@ -143,7 +143,7 @@ const Services = ({ onBookingClick }) => {
                             style={{ height: '56px', fontSize: '1.05rem', padding: '0 2.5rem' }}
                         >
                             <MonitorCheck size={22} />
-                            Prendre un rendez-vous
+                            Prendre RDV
                         </button>
                     </div>
                 </div>

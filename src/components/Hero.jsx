@@ -37,9 +37,6 @@ const Hero = ({ onBookingClick }) => {
             <h1 className="hero-title">
               Cabinet Ophtalmologique
               <span className="doctor-name-fr">Dr. EDDASSI NOUREDDINE</span>
-              <span className="arabic" dir="rtl">
-                عيادة الدكتور الداسي نور الدين
-              </span>
             </h1>
 
             <p className="hero-subtitle">
@@ -55,7 +52,7 @@ const Hero = ({ onBookingClick }) => {
                 style={{ height: 60, fontSize: '1.2rem', padding: '0 2.5rem', justifyContent: 'center' }}
               >
                 <Calendar size={22} />
-                Réserver Maintenant
+                Prendre RDV
               </motion.button>
               <a
                 href="#services"
